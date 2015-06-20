@@ -7,7 +7,7 @@
 replicate2 <- compiler::cmpfun(function(M, expr, FUN.VALUE) {
 
    rpkg_progressbar_create <- function(min, max, cur,
-               width=floor(getOption("width")*0.8), update_interval=10) {
+               width=floor(getOption("width")*0.8), update_interval=5) {
       stopifnot(is.numeric(min), length(min)==1, is.finite(min))
       stopifnot(is.numeric(max), length(max)==1, is.finite(max), min < max)
       stopifnot(is.numeric(cur), length(cur)==1, is.finite(cur), min <= cur, cur <= max)
