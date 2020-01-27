@@ -1,5 +1,8 @@
 /* *****************************************************************************
 
+Copyright (C) 2015-2020 Marek Gagolewski
+http://www.gagolewski.com
+
 CGAL quadratic programming solver interface for R
 
 Compile in R using:
@@ -7,8 +10,6 @@ Compile in R using:
    Rcpp::sourceCpp("cgal_qp_solver.cpp")
 Note that CGAL-devel libraries must be available in your system.
 
-
-Copyright (c) 2015 Marek Gagolewski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,8 +34,8 @@ THE SOFTWARE.
 /*** R
 #' @title       CGAL Quadratic Programming Solver
 #' @author      Marek Gagolewski
-#' @description An R interface to the CGAL library QP solver.
-#' Minimizes \eqn{ 0.5 x^T D x + c^T x + c0 }
+#' @description An R interface to the QP solver from the CGAL library.
+#' Minimises \eqn{ 0.5 x^T D x + c^T x + c0 }
 #' subject to
 #'    \eqn{ Ax >=< b },
 #'    \eqn{ l <= x <= u }
@@ -139,8 +140,8 @@ List cgal_qp_solver(
        to have length i+1 but not more;
        note that D is symmetric */
    for (int i=0; i<n; ++i) {
-      _A[i] = Aptr+i*m; // ith column
-      _D[i] = Dptr+i*n; // ith column
+      _A[i] = Aptr+i*m; // i-th column
+      _D[i] = Dptr+i*n; // i-th column
    }
 
    CGAL::Comparison_result* _r = new CGAL::Comparison_result[m];
